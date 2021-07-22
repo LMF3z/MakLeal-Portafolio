@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", e => {
 	const lessChangeTextArea = document.querySelector("#lessChangeTextArea")
 	const contiene_imagenes = document.querySelector(".contiene_imagenes")
 	const ruta = '../imagenes/'
+	const imagenModal = document.createElement('img')
 	const finalTextArea = 360
 
 	gsap.fromTo(foto, {y: -250}, {y: 0, duration: 1.5});
@@ -85,7 +86,7 @@ document.addEventListener("DOMContentLoaded", e => {
 	cabecera.style.backgroundImage = `url(${ruta+array_imagenes.filter(i => i == '13.jpg')})`
 
 	array_imagenes.map(img => {
-		picture.innerHTML += `<img src=${ruta+img} alt="picture"	class="img_galery">` 
+		picture.innerHTML += `<img src=${ruta+img} alt="picture" class="img_galery">` 
 	})
 
 	array_imagenes.map((item, index) => {		
@@ -121,7 +122,18 @@ document.addEventListener("DOMContentLoaded", e => {
 				scaleY: 1
 			})
 
-			contiene_imagenes.style.backgroundImage = `url(${e.target.src})`
+			contiene_imagenes.innerHTML = ''
+			imagenModal.src = `${e.target.src}`
+
+			if(imagenModal.height > 1000 && imagenModal.width > 900) {
+				imagenModal.classList.add('menosAlta')
+				imagenModal.classList.remove('imagenModal')
+			} else {
+				imagenModal.classList.add('imagenModal')
+				imagenModal.classList.remove('menosAlta')
+			}
+
+			contiene_imagenes.appendChild(imagenModal)
 
 			let indexActual = searchIndex(e)
 
@@ -168,9 +180,21 @@ document.addEventListener("DOMContentLoaded", e => {
 			let cantidadImagenes = array_imagenes.length - 1
 
 			if(indexActual < cantidadImagenes) {
-				contiene_imagenes.style.backgroundImage = `url(${ruta+array_imagenes[indexActual + 1]})`
 
-				gsap.fromTo(contiene_imagenes, {opacity: 0}, {duration: 0.5, opacity: 1})
+				contiene_imagenes.innerHTML = ''
+				imagenModal.src = `${ruta+array_imagenes[indexActual + 1]}`
+
+				if(imagenModal.height > 1000 && imagenModal.width > 900) {
+					imagenModal.classList.add('menosAlta')
+					imagenModal.classList.remove('imagenModal')
+				} else {
+					imagenModal.classList.add('imagenModal')
+					imagenModal.classList.remove('menosAlta')
+				}
+
+				contiene_imagenes.appendChild(imagenModal)
+
+				gsap.fromTo(imagenModal, {opacity: 0}, {duration: 0.5, opacity: 1})
 
 				Object.entries(state_bar.children).map((item, index) => {
 					if(indexActual + 1 == item[1].id){
@@ -180,14 +204,25 @@ document.addEventListener("DOMContentLoaded", e => {
 					}
 				})
 			} else if(indexActual === cantidadImagenes) {
-				contiene_imagenes.style.backgroundImage = `url(${ruta+array_imagenes[0]})`
 
-				gsap.fromTo(contiene_imagenes, {opacity: 0}, {duration: 0.5, opacity: 1})
+				contiene_imagenes.innerHTML = ''
+				imagenModal.src = `${ruta+array_imagenes[0]}`
+
+				if(imagenModal.height > 1000 && imagenModal.width > 900) {
+					imagenModal.classList.add('menosAlta')
+					imagenModal.classList.remove('imagenModal')
+				} else {
+					imagenModal.classList.add('imagenModal')
+					imagenModal.classList.remove('menosAlta')
+				}
+
+				contiene_imagenes.appendChild(imagenModal)
+
+				gsap.fromTo(imagenModal, {opacity: 0}, {duration: 0.5, opacity: 1})
 
 				Object.entries(state_bar.children).map((item, index) => {
 					if(indexActual + 1 != item[1].id){
 						item[1].classList.remove('activeBall')
-						
 					}
 				})
 
@@ -203,9 +238,21 @@ document.addEventListener("DOMContentLoaded", e => {
 			let cantidadImagenes = array_imagenes.length - 1
 
 			if(indexActual > 0) {
-				contiene_imagenes.style.backgroundImage = `url(${ruta+array_imagenes[indexActual - 1]})`
 
-				gsap.fromTo(contiene_imagenes, {opacity: 0}, {duration: 0.5, opacity: 1})
+				contiene_imagenes.innerHTML = ''
+				imagenModal.src = `${ruta+array_imagenes[indexActual - 1]}`
+
+				if(imagenModal.height > 1000 && imagenModal.width > 900) {
+					imagenModal.classList.add('menosAlta')
+					imagenModal.classList.remove('imagenModal')
+				} else {
+					imagenModal.classList.add('imagenModal')
+					imagenModal.classList.remove('menosAlta')
+				}
+
+				contiene_imagenes.appendChild(imagenModal)
+
+				gsap.fromTo(imagenModal, {opacity: 0}, {duration: 0.5, opacity: 1})
 
 				Object.entries(state_bar.children).map((item, index) => {
 					if(indexActual - 1 == item[1].id){
@@ -215,9 +262,21 @@ document.addEventListener("DOMContentLoaded", e => {
 					}
 				})
 			} else if(indexActual === 0) {
-				contiene_imagenes.style.backgroundImage = `url(${ruta+array_imagenes[cantidadImagenes]})`
 
-				gsap.fromTo(contiene_imagenes, {opacity: 0}, {duration: 0.5, opacity: 1})
+				contiene_imagenes.innerHTML = ''
+				imagenModal.src = `${ruta+array_imagenes[cantidadImagenes]}`
+
+				if(imagenModal.height > 1000 && imagenModal.width > 900) {
+					imagenModal.classList.add('menosAlta')
+					imagenModal.classList.remove('imagenModal')
+				} else {
+					imagenModal.classList.add('imagenModal')
+					imagenModal.classList.remove('menosAlta')
+				}
+
+				contiene_imagenes.appendChild(imagenModal)
+
+				gsap.fromTo(imagenModal, {opacity: 0}, {duration: 0.5, opacity: 1})
 
 				Object.entries(state_bar.children).map((item, index) => {
 					if(indexActual + 1 != item[1].id){
@@ -232,18 +291,28 @@ document.addEventListener("DOMContentLoaded", e => {
 		}
 	}
 
-	contiene_imagenes.addEventListener('mouseover', e => {
-		gsap.to([arrow_right, arrow_left, '.close', '.state_bar'], {opacity: 1})
+	modal.addEventListener('mouseover', e => {
+
+		if(e.target.src || e.target.classList.contains('arrow_right') ||
+			e.target.classList.contains('arrow_left') || 
+			e.target.classList.contains('close')) {
+			
+			gsap.to([arrow_right, arrow_left, '.close', '.state_bar'], {opacity: 1})
+		}
+
 	})
 
-	contiene_imagenes.addEventListener('mouseout', e => {
+	modal.addEventListener('mouseout', e => {
+		
 		gsap.to([arrow_right, arrow_left, '.close', '.state_bar'], {opacity: 0})
+
 	})
 
 	const searchIndex = e => {
-		let { backgroundImage } = contiene_imagenes.style
-		let image = backgroundImage.split('/')
-		let actual = image[image.length - 1].replace('")','')
+
+		let { currentSrc } = contiene_imagenes.children[0]
+		let urlSplited = currentSrc.split('/')
+		let actual = urlSplited[4]
 
 		return array_imagenes.findIndex(img => img === actual)
 	}
