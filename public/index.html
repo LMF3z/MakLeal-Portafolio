@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="estilos/styles.css">
+	<title>Mak Leal Portafolio</title>
+</head>
+<body>
+	<div class="container">
+		<div class="cabecera" id="cabecera">
+			
+		</div>
+		<div class="cabecera_shadow">
+			<div class="contiene_foto">
+				<div class="foto" id="foto">
+					
+				</div>
+			</div>
+			<div class="contiene_titulo">
+				<h1>Maria Petit</h1>
+
+				<h4>BROWS AND EYELASH</h4>
+
+				<p>Mi portafolio</p>
+			</div>
+		</div>
+
+		<!-- sobre mi -->
+		<div class="about_me">
+			<div class="about_me_title">
+				<label>Sobre Mí</label>
+			</div>
+			<div class="about_me_desciption">
+				<div class="description_imagen">
+					<img src="./imagenes/about_me.jpg" class="description_imagen_img">
+				</div>
+				<div class="description">
+					<p>
+						Hola! Soy María José Petit, Esteticista en Depilacion Corporal y Facial, Técnico en Cejas y Pestañas. Cuento con 3 años de experiencia. Mi último puesto de trabajo fue en una franquicia venezolana muy reconocida, donde trabaje durante 2 años, en los cuales realice depilaciones faciales y corporales, diseño, depilación y tinturado de cejas, además de colocación de pestañas y lifting.
+					</p>
+
+					<p>
+						Me gusta estar informada de las nuevas tendencias en cuanto a técnicas de depilación se refiere, pestañas y maquillaje (una de mis tantas pasiones).
+						Me encanta leer, me gusta dibujar, ver maratones de series, y hacer un poco de ejercicio.
+					</p>
+					<!-- <p>
+						Personalmente me siento capacitada para asumir cualquier cargo referente a estas áreas.
+					</p> -->
+				</div>
+			</div>
+		</div>
+
+		<!-- Galeria de trabajos -->
+		<div class="galeria">
+			<div class="galeria_title">
+				<label>Galery</label>
+			</div>
+			<div class="galeria_pictures" id="picture">
+				
+			</div>
+		</div>
+
+		<!-- formulario de contacto -->
+
+		<form class="form_contact" id="form_contact">
+			<div class="form_title">
+				<label>Dejame un mensaje: </label>
+			</div>
+
+			<div class="contiene_errors">
+				<span class="errors"></span>
+			</div>
+
+			<div class="full_name">
+				<input type="text" id="name" placeholder="Tu nombre" >
+				<input type="text" id="lastName" placeholder="Tu apellido" >
+			</div>
+			<div class="correo">
+				<input type="text" id="email" placeholder="Tu correo" >
+				<input type="text" id="empresa" placeholder="Empresa" >
+			</div>
+			<div class="mensaje">
+				<textarea placeholder="Mensaje" id="mensaje" minlength="0" maxlength="360" id="textarea"></textarea>
+				<p id="changeTextArea"><span id="countChangeTextArea">0</span>/<span id="lessChangeTextArea"></span></p>
+			</div>
+			<div class="contiene_buttons">
+				<button type="submit">
+					Enviar
+				</button>
+			</div>
+			<div class="footer">
+				Todoas los derechos reservados <span>&copy;</span>
+			</div>
+		</form>
+
+		<!-- footer -->
+		<!-- <footer>
+			
+		</footer> -->
+
+	</div>
+
+	<div class="container_modal">
+		<div class="modal">
+			<div class="contiene_imagenes">
+				<div class="close">
+					x
+				</div>
+				<div class="arrow_left" id="back">
+					&lt;
+				</div>
+				<div class="arrow_right" id="next">
+					&gt;
+				</div>
+			</div>
+			<div class="state_bar">
+				
+			</div>
+			<!-- dentro van las imagenes -->
+		</div>
+	</div>
+
+	<script src="./gsap-public/minified/gsap.min.js"></script>
+	<script src="./gsap-public/minified/ScrollTrigger.min.js"></script>
+	<script src="./scripts/app.js"></script>
+</body>
+</html>
