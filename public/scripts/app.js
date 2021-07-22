@@ -265,30 +265,49 @@ document.addEventListener("DOMContentLoaded", e => {
 			mensaje
 		}
 
-		const respuesta = await fetch("https://makleal-portafolio.herokuapp.com/saveData", {
-			method: 'post',
-			headers: {
-				'Content-Type': 'application/json'
-			},
+		const enlace = "https://makleal-portafolio.herokuapp.com"
+		// const enlace = "http://localhost:3001"
 
-			body: JSON.stringify(data)
-		})
 
-		const decode = await respuesta.json()
-		
-		if(decode?.message) {
+
+		try {
+			
+			errors.classList.add('muestraEnviar')
+			errors.innerHTML = 'Enviando...'
+
+			const respuesta = await fetch(enlace+"/saveData", {
+				method: 'post',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+
+				body: JSON.stringify(data)
+			})
+
+
+			const decode = await respuesta.json()
+
+			console.log(decode)
+			
+			if(decode?.message) {
+				errors.classList.remove('muestraEnviar')
+				errors.style.visibility = 'visible'
+				errors.innerHTML = decode.message
+				return null
+			} else {
+				errors.style.visibility = 'hidden'
+				errors.innerHTML = ''
+			}
+
+			if(decode.send){
+				e.target.reset()
+				alert('your message was sent')
+				return null
+			}
+		} catch(e) {
+			console.log(e);
 			errors.style.visibility = 'visible'
-			errors.innerHTML = decode.message
-			return null
-		} else {
-			errors.style.visibility = 'hidden'
-			errors.innerHTML = ''
-		}
-
-		if(decode.send){
-			e.target.reset()
-			alert('your message was sent')
-			return null
+			errors.innerHTML = "Error al enviar, trate más tarde"
 		}
 
 	})
