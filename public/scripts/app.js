@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", e => {
 	const contiene_imagenes = document.querySelector(".contiene_imagenes")
 	const ruta = '../imagenes/'
 	const imagenModal = document.createElement('img')
+
+	console.log(window.innerWidth)
+
 	const finalTextArea = 360
 
 	gsap.fromTo(foto, {y: -250}, {y: 0, duration: 1.5});
@@ -125,12 +128,19 @@ document.addEventListener("DOMContentLoaded", e => {
 			contiene_imagenes.innerHTML = ''
 			imagenModal.src = `${e.target.src}`
 
-			if(imagenModal.height > 1000 && imagenModal.width > 900) {
-				imagenModal.classList.add('menosAlta')
-				imagenModal.classList.remove('imagenModal')
+			if(window.innerWidth < 400){
+				imagenModal.classList.add('sm')
 			} else {
-				imagenModal.classList.add('imagenModal')
-				imagenModal.classList.remove('menosAlta')
+
+				imagenModal.classList.remove('sm')
+
+				if(imagenModal.height > 1000 && imagenModal.width > 900) {
+					imagenModal.classList.add('menosAlta')
+					imagenModal.classList.remove('imagenModal')
+				} else {
+					imagenModal.classList.add('imagenModal')
+					imagenModal.classList.remove('menosAlta')
+				}
 			}
 
 			contiene_imagenes.appendChild(imagenModal)
@@ -184,12 +194,19 @@ document.addEventListener("DOMContentLoaded", e => {
 				contiene_imagenes.innerHTML = ''
 				imagenModal.src = `${ruta+array_imagenes[indexActual + 1]}`
 
-				if(imagenModal.height > 1000 && imagenModal.width > 900) {
-					imagenModal.classList.add('menosAlta')
-					imagenModal.classList.remove('imagenModal')
+				if(window.innerWidth < 400){
+					imagenModal.classList.add('sm')
 				} else {
-					imagenModal.classList.add('imagenModal')
-					imagenModal.classList.remove('menosAlta')
+
+					imagenModal.classList.remove('sm')
+
+					if(imagenModal.height > 1000 && imagenModal.width > 900) {
+						imagenModal.classList.add('menosAlta')
+						imagenModal.classList.remove('imagenModal')
+					} else {
+						imagenModal.classList.add('imagenModal')
+						imagenModal.classList.remove('menosAlta')
+					}
 				}
 
 				contiene_imagenes.appendChild(imagenModal)
@@ -208,12 +225,19 @@ document.addEventListener("DOMContentLoaded", e => {
 				contiene_imagenes.innerHTML = ''
 				imagenModal.src = `${ruta+array_imagenes[0]}`
 
-				if(imagenModal.height > 1000 && imagenModal.width > 900) {
-					imagenModal.classList.add('menosAlta')
-					imagenModal.classList.remove('imagenModal')
+				if(window.innerWidth < 400){
+					imagenModal.classList.add('sm')
 				} else {
-					imagenModal.classList.add('imagenModal')
-					imagenModal.classList.remove('menosAlta')
+
+					imagenModal.classList.remove('sm')
+
+					if(imagenModal.height > 1000 && imagenModal.width > 900) {
+						imagenModal.classList.add('menosAlta')
+						imagenModal.classList.remove('imagenModal')
+					} else {
+						imagenModal.classList.add('imagenModal')
+						imagenModal.classList.remove('menosAlta')
+					}
 				}
 
 				contiene_imagenes.appendChild(imagenModal)
@@ -242,12 +266,19 @@ document.addEventListener("DOMContentLoaded", e => {
 				contiene_imagenes.innerHTML = ''
 				imagenModal.src = `${ruta+array_imagenes[indexActual - 1]}`
 
-				if(imagenModal.height > 1000 && imagenModal.width > 900) {
-					imagenModal.classList.add('menosAlta')
-					imagenModal.classList.remove('imagenModal')
+				if(window.innerWidth < 400){
+					imagenModal.classList.add('sm')
 				} else {
-					imagenModal.classList.add('imagenModal')
-					imagenModal.classList.remove('menosAlta')
+
+					imagenModal.classList.remove('sm')
+
+					if(imagenModal.height > 1000 && imagenModal.width > 900) {
+						imagenModal.classList.add('menosAlta')
+						imagenModal.classList.remove('imagenModal')
+					} else {
+						imagenModal.classList.add('imagenModal')
+						imagenModal.classList.remove('menosAlta')
+					}
 				}
 
 				contiene_imagenes.appendChild(imagenModal)
@@ -266,14 +297,20 @@ document.addEventListener("DOMContentLoaded", e => {
 				contiene_imagenes.innerHTML = ''
 				imagenModal.src = `${ruta+array_imagenes[cantidadImagenes]}`
 
-				if(imagenModal.height > 1000 && imagenModal.width > 900) {
-					imagenModal.classList.add('menosAlta')
-					imagenModal.classList.remove('imagenModal')
+				if(window.innerWidth < 400){
+					imagenModal.classList.add('sm')
 				} else {
-					imagenModal.classList.add('imagenModal')
-					imagenModal.classList.remove('menosAlta')
-				}
 
+					imagenModal.classList.remove('sm')
+
+					if(imagenModal.height > 1000 && imagenModal.width > 900) {
+						imagenModal.classList.add('menosAlta')
+						imagenModal.classList.remove('imagenModal')
+					} else {
+						imagenModal.classList.add('imagenModal')
+						imagenModal.classList.remove('menosAlta')
+					}
+				}
 				contiene_imagenes.appendChild(imagenModal)
 
 				gsap.fromTo(imagenModal, {opacity: 0}, {duration: 0.5, opacity: 1})
