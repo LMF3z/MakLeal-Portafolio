@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", e => {
 			mensaje
 		}
 
-		const respuesta = await fetch("http://localhost:3001/saveData", {
+		const respuesta = await fetch("https://makleal-portafolio.herokuapp.com/saveData", {
 			method: 'post',
 			headers: {
 				'Content-Type': 'application/json'
